@@ -350,7 +350,7 @@ impl Generator {
         let key_name: String = properties
             .iter()
             .map(|x| x.abi_name().to_string() + &x.type_str())
-            .reduce(|a, b| (a + &b))
+            .reduce(|a, b| a + &b)
             .unwrap_or_default();
 
         let existing_struct = self
@@ -566,7 +566,6 @@ struct FunctionImpl {
     struct_impl: codegen::Function,
     //builder_impl: (Option<codegen::Impl>, Option<codegen::Impl>), //Input output
 }
-
 
 fn params_to_string(params: &[Param]) -> String {
     fn param_type_to_string(param: ParamType) -> String {
@@ -804,7 +803,7 @@ impl StructProperty {
                 }
             }
             StructProperty::Array { .. } => Some("array".to_string()),
-            StructProperty::Option { ..} => None,
+            StructProperty::Option { .. } => None,
             StructProperty::Tuple { .. } => None,
             StructProperty::HashMap { .. } => None,
         };

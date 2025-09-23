@@ -160,8 +160,6 @@ function onOptionalChange() {
 </template>
 
 <style lang="scss">
-@import '../styles/constants';
-
 .wide {
   width: 100%;
 }

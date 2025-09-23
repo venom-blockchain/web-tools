@@ -1,0 +1,71 @@
+$divider-colors: 'white', 'black', 'light', 'dark', 'primary', 'link', 'info', 'success', 'warning', 'danger';
+$divider-light-colors: 'primary', 'link', 'info', 'success', 'warning', 'danger';
+
+.divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+  color: var(--bulma-grey);
+  font-size: 0.75rem;
+  font-weight: var(--bulma-weight-semibold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  &::after,
+  &::before {
+    display: block;
+    flex: 1;
+    height: 1px;
+    background-color: var(--bulma-border);
+    content: '';
+  }
+
+  &:not(.is-right)::after {
+    margin-left: 10px;
+  }
+
+  &:not(.is-left)::before {
+    margin-right: 10px;
+  }
+
+  &.is-left::before,
+  &.is-right::after {
+    display: none;
+  }
+
+  &.is-vertical {
+    flex-direction: column;
+    margin: 0 25px;
+
+    &::after,
+    &::before {
+      width: 1px;
+      height: auto;
+    }
+
+    &::after {
+      margin-top: 10px;
+      margin-left: 0;
+    }
+
+    &::before {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@each $color in $divider-colors {
+  .divider.is-#{$color}::after,
+  .divider.is-#{$color}::before {
+    background-color: var(--bulma-#{$color});
+  }
+}
+
+@each $color in $divider-light-colors {
+  .divider.is-#{$color}.is-light::after,
+  .divider.is-#{$color}.is-light::before {
+    background-color: var(--bulma-#{$color}-light);
+  }
+}

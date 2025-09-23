@@ -330,7 +330,8 @@ function onHideAbiSelector() {
     </div>
     <div v-if="storedAbi.length > 0" :class="['dropdown', { 'is-active': abiSelectorVisible }]">
       <div class="dropdown-trigger">
-        <button class="button" aria-haspopup="true" aria-controls="select-abi-dropdown" @click="onToggleAbiSelector">
+        <button class="button select-abi-button" aria-haspopup="true" aria-controls="select-abi-dropdown"
+          @click="onToggleAbiSelector">
           <span>{{ selectedAbi == null ? 'Select ABI...' : selectedAbi }}</span>
           <span class="icon is-small">
             <i :class="['fas', abiSelectorVisible ? 'fa-angle-up' : 'fa-angle-down']" aria-hidden="true" />
@@ -445,3 +446,10 @@ function onHideAbiSelector() {
     </div>
   </Teleport>
 </template>
+
+<style scoped>
+.select-abi-button {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+</style>

@@ -1,7 +1,7 @@
 import { shallowRef } from 'vue';
 import { TvmConnectState, TvmConnectUI, everWallet, sparxWallet, venomWallet } from '@broxus/tvm-connect-ui';
 
-import '@broxus/tvm-connect-ui/dist/styles.css';
+import '@broxus/tvm-connect-ui/styles.css';
 
 const tvmConnect = new TvmConnectUI({
   providers: [sparxWallet(), everWallet(), venomWallet()],

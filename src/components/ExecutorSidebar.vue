@@ -162,7 +162,7 @@ async function preloadTransactions() {
             <p class="help">{{ state?.isDeployed ? 'Deployed' : 'Not deployed' }}</p>
           </div>
         </div>
-        <button v-if="state != null" class="button ml-1 is-white" v-clipboard="state.balance">
+        <button v-if="state != null" class="button ml-1 is-white is-align-self-flex-start" v-clipboard="state.balance">
           {{ displayedBalance }}
         </button>
       </div>

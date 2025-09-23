@@ -11,7 +11,10 @@ export const disasmVite = (): Plugin => {
     configureServer(server: ViteDevServer) {
       server.middlewares.use((req, res, next) => {
         if (req?.url?.endsWith('tycho_disasm_bg.wasm')) {
-          const wasmPath = path.resolve(__dirname, './node_modules/@tychosdk/disasm/dist/wasm/tycho_disasm_bg.wasm');
+          const wasmPath = path.resolve(
+            import.meta.dirname,
+            './node_modules/@tychosdk/disasm/dist/wasm/tycho_disasm_bg.wasm'
+          );
 
           const wasmFile = fs.readFileSync(wasmPath);
           res.setHeader('Content-Type', 'application/wasm');
@@ -34,11 +37,18 @@ export default defineConfig({
     nodePolyfills(),
     disasmVite()
   ],
-  publicDir: path.resolve(__dirname, 'public'),
+  publicDir: path.resolve(import.meta.dirname, 'public'),
+  css: {
+    preprocessorOptions: {
+      scss: {
+        quietDeps: true
+      }
+    }
+  },
   resolve: {
     alias: {
-      '@core': path.resolve(__dirname, 'core/pkg'),
-      '@debugger': path.resolve(__dirname, 'debugger/pkg')
+      '@core': path.resolve(import.meta.dirname, 'core/pkg'),
+      '@debugger': path.resolve(import.meta.dirname, 'debugger/pkg')
     }
   },
   envPrefix: 'BYTIE_',
@@ -46,8 +56,10 @@ export default defineConfig({
     target: 'es2020'
   },
   optimizeDeps: {
-    esbuildOptions: {
-      target: 'es2020'
+    rolldownOptions: {
+      transform: {
+        target: 'es2020'
+      }
     }
   }
 });

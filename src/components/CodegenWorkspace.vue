@@ -2,8 +2,6 @@
 import { ref, shallowRef, watchEffect } from 'vue';
 import * as core from '@core';
 
-import Codegen from "./Codegen.vue";
-
 const ABI_TYPE: { [K in core.AbiType]: string } = {
   cell: "Cell",
   contract: "Contract",
