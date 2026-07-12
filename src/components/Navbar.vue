@@ -30,6 +30,7 @@ const balance = computed(() => fromNano(tvmConnectState.value.balance));
         <NavbarItem path="/tip3">TIP3</NavbarItem>
         <NavbarItem path="/tip6">TIP6</NavbarItem>
         <NavbarItem path="/codegen">Codegen</NavbarItem>
+        <NavbarItem path="/templates">Templates</NavbarItem>
       </div>
       <div class="navbar-end">
         <div class="navbar-item">

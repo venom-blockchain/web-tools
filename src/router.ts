@@ -11,6 +11,7 @@ import MicrowaveWorkspace from './components/MicrowaveWorkspace.vue';
 import Tip3Workspace from './components/Tip3Workspace.vue';
 import Tip6Workspace from './components/Tip6Workspace.vue';
 import CodegenWorkspace from './components/CodegenWorkspace.vue';
+import TemplateLibraryWorkspace from './components/TemplateLibraryWorkspace.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -26,7 +27,8 @@ const router = createRouter({
     { path: '/microwave', component: MicrowaveWorkspace },
     { name: 'tip3', path: '/tip3/:address?', component: Tip3Workspace },
     { name: 'tip6', path: '/tip6', component: Tip6Workspace },
-    { name: 'codegen', path: '/codegen', component: CodegenWorkspace }
+    { name: 'codegen', path: '/codegen', component: CodegenWorkspace },
+    { name: 'templates', path: '/templates', component: TemplateLibraryWorkspace }
   ]
 });
 
