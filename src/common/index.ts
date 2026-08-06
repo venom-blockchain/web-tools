@@ -138,7 +138,7 @@ export type Structure = {
   components?: Structure[];
 };
 
-const NUMBER_FIELD_REGEX = /^(?:(?:var)?u?int\d+|gram|timestamp|expire)$/;
+const NUMBER_FIELD_REGEX = /^(?:(?:var)?u?int\d+|gram|token|timestamp|expire)$/;
 const TEXT_FIELD_REGEX = /^(?:cell|address|address_std|bytes|string|fixedbytes\d+|pubkey)$/;
 
 export function makeStructure(
